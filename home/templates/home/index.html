@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://db.onlinewebfonts.com/c/89d11a443c316da80dcb8f5e1f63c86e?family=Bauhaus+93+V2" rel="stylesheet" type="text/css"/>
+    <link href="https://db.onlinewebfonts.com/c/4ecc244a93c76e8fb47db774ed7b2949?family=Yas" rel="stylesheet" type="text/css"/>
+    <link href="https://db.onlinewebfonts.com/c/5f58f47e94dc428273cad24bec20ed83?family=PersianZibaSSK" rel="stylesheet" type="text/css"/>
+    <link rel="icon" href="/static/images/favicon-32x32.png" type="image/x-icon">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>Magic Bytes | صفحه اصلی</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'index-page' %}" class="logo">Magic. Bytes</a>
+        <ul class="nav">
+            <li><a href="{% url 'article-list-page' %}" class="booking">فهرست مقالات</a></li>
+        </ul>
+
+        <a href="#" class="menu" onclick="toggleMenu();"><ion-icon name="grid-outline"></ion-icon></a>
+    </header>
+
+    <ul class="nav-mobile">
+        <li><a href="{% url 'article-list-page' %}">فهرست مقالات</a></li>
+        <li><a href="{% url 'article-list-page' %}">نقشه راه یادگیری</a></li>
+        <li><a href="{% url 'support-page' %}">حمایت مالی</a></li>
+        <li><a href="{% url 'about-us-page' %}">! داستان ما رو دنبال کن</a></li>
+        <li><a href="{% url 'about-us-page' %}">تماس با ما</a></li>
+    </ul>
+
+
+    <div class="swiper banner-swiper">
+
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="banner">
+                <img src="/static/images/pxfuel (4).jpg" alt="تصویر اسلایدر یک صفحه اصلی">
+                <div class="shade">
+                    <img src="/static/images/vecteezy_doodle-freehand-drawing-of-world-map_13079149_657.png" alt="آیکون تصویر اسلایدر یک صفحه اصلی" class="map">
+                </div>
+                <div class="content-left">
+                    <h1>Block</h1>
+                </div>
+                <div class="content-right">
+                    <h1>Cha<span>i</span>n</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="banner">
+                <img src="/static/images/pxfuel (5).jpg" alt="تصویر اسلایدر دو صفحه اصلی">
+                <div class="shade"></div>
+
+                <div class="drop">
+                    <video src="/static/assets/40g888piCxnP (online-video-cutter.com).mp4" loop autoplay muted></video>
+                </div>
+
+
+                <div class="content-left">
+                    <h1>Magic</h1>
+                </div>
+                <div class="content-right">
+                    <h1>Byt<span>e</span>s</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="banner">
+                <img src="/static/images/pxfuel (2).jpg" alt="تصویر اسلایدر سه صفحه اصلی">
+                <div class="shade"></div>
+
+                <div class="drop">
+                    <video src="/static/assets//48M888piCDVu.mp4" loop autoplay muted></video>
+                </div>
+
+                <div class="content-left">
+                    <h1>Hyper</h1>
+                </div>
+                <div class="content-right">
+                    <h1>ledg<span>e</span>r</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="banner-4">
+                <img src="/static/images/What is the Difference Between Blockchain And Bitcoin.jpg" alt="تصویر اسلایدر چهار صفحه اصلی">
+                <div class="shade"></div>
+
+                <div class="drop">
+                    <video src="/static/assets/880744.mp4" loop autoplay muted></video>
+                </div>
+
+                <div class="content-left">
+                    <h1></h1>
+                </div>
+                <div class="content-right">
+                    <h1><span></span></h1>
+                </div>
+            </div>
+        </div>
+        ...
+        </div>
+
+        <div class="control">
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+    <footer>
+        <ul class="sci">
+            <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-youtube"></ion-icon></a></li>
+        </ul>
+
+        <div class="ask-us">
+            <a href="{% url 'support-page' %}" class="chat"><ion-icon name="cafe-sharp"></ion-icon></a>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="/static/js/swiper.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

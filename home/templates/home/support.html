@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magic Bytes | حمایت از ما</title>
+  <link rel="icon" href="/static/images/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <!-- header design -->
+   <header class="header">
+    <a href="{% url 'index-page' %}" class="logo">Magic. Bytes<span class="animate" style="--i:1;"></span></a>
+
+    <div class='bx bx-menu' id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+
+    <nav class="navbar">
+      <a href="{% url 'index-page' %}">صفحه اصلی</a>
+      <a href="{% url 'article-list-page' %}">نقشه راه یادگیری</a>
+      <a href="{% url 'article-list-page' %}">لیست مقالات</a>
+      <a href="" class="active">حمایت مالی</a>
+      <a href="{% url 'about-us-page' %}">ارتباط با ما</a>
+
+      <span class="active-nav"></span>
+      <span class="animate" style="--i:2;"></span>
+    </nav>
+  </header>
+
+
+<!-- about section design -->
+<section class="about" id="about">
+
+  <div class="about-img">
+    <img src="/static/images/single-logo.png" alt="">
+    <span class="circle-spin"></span>
+  </div>
+
+  <div class="about-content">
+    <h3>Frontend Developer!<span class="animate scroll" style="--i:3;"></span></h3>
+    <p>
+     تیم Magic. Bytes به هیچ نهاد یا پشتیبان مالی متکی نیست و هدفمان تنها ارتقا درک و دانش علاقه مندان نسبت به فناوری بلاکچین و فرصت های پیشرو است. در صورت تمایل می توانید ما را به صرف یک فنجان قهوه در یک کافی شاپ معمولی دعوت کنید.
+    </p>
+
+{#    <div class="btns btn-support btn-box">#}
+{#      <a href="#" class="">bc1qn9jzvc470hpevjywnws7xzukcy5ffwwz5dceh6 </a>#}
+{#        <div class="currency-type">Bitcoin</div>#}
+{#    </div>#}
+{##}
+{#     <div class="about-img-support">#}
+{#         <img src="/static/images/BTC%20address.jpg" alt="BTC address" class="support-address">#}
+{#         <span class="circle-spin"></span>#}
+{#     </div>#}
+
+
+{#    <div class="btns btn-support btn-box">#}
+{#        <i class='bx bx-check-square'></i>#}
+{#  <button id="copyButton" class="">bc1qn9jzvc470hpevjywnws7xzukcy5ffwwz5dceh6</button>#}
+{#  <div class="currency-type">Bitcoin</div>#}
+{#</div>#}
+
+      <!-- HTML -->
+<div><h3>BTC Currency</h3></div>
+
+<div class="btns btn-support btn-box">
+  <i class='bx bx-check-square' id="checkmarkIcon" style="display: none;"></i>
+  <button id="copyButton">bc1qn9jzvc470hpevjywnws7xzukcy5ffwwz5dceh6</button>
+{#  <div class="currency-type"> : Bitcoin</div>#}
+</div>
+
+           <div class="about-img-support">
+         <img src="/static/images/BTC%20address.jpg" alt="BTC address" class="support-address">
+     </div>
+
+
+       <div><h3>TRON Currency</h3></div>
+
+<div class="btns btn-support btn-box">
+  <i class='bx bx-check-square' id="checkmarkIcon2" style="display: none;"></i>
+  <button id="copyButton2">TSGgL858RBMdfFbDpJtxT4tcQ3sV5szNX6</button>
+{#  <div class="currency-type"> : Bitcoin</div>#}
+</div>
+
+           <div class="about-img-support">
+         <img src="/static/images/TRON%20address.jpg" alt="BTC address" class="support-address">
+     </div>
+
+  </div>
+
+  </div>
+
+
+</section>
+
+  <!-- footer design -->
+  <footer class="footer">
+    <div class="footer-text">
+      <p>تمامی حقوق مادی و معنوی این سایت محفوظ است.  <br>
+        &copy; Magic. Bytes</p>
+
+    </div>
+
+    <div class="footer-iconTop">
+      <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+  <script src="/static/js/script.js"></script>
+</body>
+</html>

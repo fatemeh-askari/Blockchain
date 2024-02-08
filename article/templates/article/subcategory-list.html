@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لیست مقالات</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/images/favicon-32x32.png" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+
+  <!-- header design -->
+    <header class="header">
+    <a href="{% url 'index-page' %}" class="logo">Magic. Bytes<span class="animate" style="--i:1;"></span></a>
+
+    <div class='bx bx-menu' id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+
+    <nav class="navbar">
+      <a href="{% url 'index-page' %}">صفحه اصلی</a>
+      <a href="{% url 'article-list-page' %}">نقشه راه یادگیری</a>
+      <a href="#" class="active">لیست مقالات</a>
+      <a href="{% url 'support-page' %}">حمایت مالی</a>
+      <a href="{% url 'about-us-page' %}">ارتباط با ما</a>
+
+      <span class="active-nav"></span>
+      <span class="animate" style="--i:2;"></span>
+    </nav>
+  </header>
+
+
+
+  <!-- education section design -->
+
+<section class="education" id="education">
+    <div class="education-row">
+        <div class="education-column">
+            <h3 class="title">{{ subcategory.title }}</h3>
+
+{% for article in articles %}
+                    {% if article.is_active %}
+            <div class="education-box">
+
+                        <div class="education-content item-in-subcat">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i> {{ article.created_at|date:'M d , Y' }}</div>
+{#                                <a href=""><h3>{{ article.title }}</h3></a>#}
+                                <a href="{% url 'article-details' url_title=article.url_title %}"><h3>{{ article.title }}</h3></a>
+                                <p class="item-in-subcat-desc">{{ article.short_description }}</p>
+                            </div>
+                        </div>
+
+            </div>
+         {% endif %}
+                {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <!-- footer design -->
+  <footer class="footer">
+    <div class="footer-text">
+      <p>تمامی حقوق مادی و معنوی این سایت محفوظ است.  <br>
+        &copy; Magic. Bytes</p>
+
+    </div>
+
+    <div class="footer-iconTop">
+      <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+  <script src="/static/js/script.js"></script>
+</body>
+</html>

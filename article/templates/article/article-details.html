@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="icon" href="/static/images/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+
+  <style>
+    .footer {
+      background: var(--second-bg-color);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- header design -->
+  <header class="header">
+    <a href="{% url 'index-page' %}" class="logo">Magic. Bytes<span class="animate" style="--i:1;"></span></a>
+
+    <div class='bx bx-menu' id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+
+    <nav class="navbar">
+      <a href="{% url 'index-page' %}">صفحه اصلی</a>
+      <a href="{% url 'article-list-page' %}">نقشه راه یادگیری</a>
+      <a href="#education" class="active">مقالات</a>
+      <a href="{% url 'support-page' %}">حمایت مالی</a>
+      <a href="{% url 'about-us-page' %}">ارتباط با ما</a>
+
+      <span class="active-nav"></span>
+      <span class="animate" style="--i:2;"></span>
+    </nav>
+  </header>
+
+
+
+  <!-- education section design -->
+
+  <section class="education" id="education">
+
+    <!-- <h2 class="heading">My <span>Journey</span><span class="animate scroll" style="--i:1;"></span></h2> -->
+
+    <div class="education-row" >
+      <div class="education-column">
+        <h1 class="title">{{ article.title }}</h1>
+
+        <div class="education-box">
+
+            <!-- article-details.html -->
+<div class="education-content">
+    <div class="content">
+        <img src="{{ article.image.url }}" alt="{{ article.title }}">
+    </div>
+</div>
+
+<div class="education-content">
+    <div class="content">
+        <div class="year"><i class='bx bxs-calendar' ></i> {{ article.created_at|date:'M d , Y' }}</div>
+
+        <h2 class="article-title-details-page">{{ article.title }}</h2>
+{#        <p>{{ article.short_description }}</p>#}
+        <div class="article-content">
+
+            {% if article.text_with_code %}
+                {{ article.text_with_code|safe }}
+            {% else %}
+                {{ article.text|safe }}
+            {% endif %}
+        </div>
+        <!-- Add other fields as needed -->
+    </div>
+</div>
+
+<!-- Add the rich text content using |safe filter to render HTML -->
+
+
+
+
+          <div class="education-content">
+            <div class="content last-articles-titr">
+            <h3>لیست آخرین مقالات</h3>
+            <ul class="last-articles">
+                {% for last_article in last_articles %}
+      <li><i class='bx bxs-edit-alt' ></i><a href="{% url 'article-details' url_title=last_article.url_title %}">{{ last_article.title }}</a></li>
+    {% endfor %}
+            </ul>
+
+            </div>
+          </div>
+
+
+<section class="comment-section">
+
+                    <div class="wrapper">
+
+    <div class="form-box login">
+      <h2 class="animation" style="--i:0; --j:21">ثبت دیدگاه و سوالات</h2>
+      <form action="#">
+        <div class="input-box animation" style="--i:1; --j:22">
+          <input type="text" required>
+          <label>نام و نام خانوادگی</label>
+          <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box animation" style="--i:2; --j:23">
+          <input type="text" required>
+          <label>نوشتن متن دیدگاه جدید</label>
+          <i class='bx bxs-comment-detail'></i>
+        </div>
+        <button type="submit" class="btn animation" style="--i:3; --j:24">ارسال دیدگاه</button>
+        <div class="logreg-link animation" style="--i:4; --j:25">
+            <p>برای این مقاله امتیازی ثبت می کنید؟</p>
+{#          <p>Don't have an account? <a href="#" class="register-link">Sign up</a></p>#}
+
+
+<div class="rate-section">
+            <div class="rate">
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5" title="text">5 stars</label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4" title="text">4 stars</label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3" title="text">3 stars</label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2" title="text">2 stars</label>
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1" title="text">1 star</label>
+  </div>
+</div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+                </section>
+
+        <div class="container-comment">
+      <div class="comment__container opened" id="first-comment">
+        <div class="comment__card">
+          <h3 class="comment__title">The first comment</h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum
+            eaque itaque sit tempora officiis, quisquam atque? Impedit
+            dignissimos error laudantium!
+          </p>
+          <div class="comment__card-footer">
+            <div>Likes 123</div>
+            <div>Dislikes 23</div>
+            <div class="show-replies">Reply 2</div>
+          </div>
+        </div>
+        <div
+          class="comment__container"
+          dataset="first-comment"
+          id="first-reply"
+        >
+          <div class="comment__card">
+            <h3 class="comment__title">The first reply</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Voluptatum eaque itaque sit tempora officiis, quisquam atque?
+              Impedit dignissimos error laudantium!
+            </p>
+            <div class="comment__card-footer">
+              <div>Likes 123</div>
+              <div>Dislikes 23</div>
+              <div class="show-replies">Reply 1</div>
+            </div>
+          </div>
+          <div
+            class="comment__container"
+            dataset="first-reply"
+            id="first-first-reply"
+          >
+            <div class="comment__card">
+              <h3 class="comment__title">The first reply to the first reply</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Voluptatum eaque itaque sit tempora officiis, quisquam atque?
+                Impedit dignissimos error laudantium!
+              </p>
+              <div class="comment__card-footer">
+                <div>Likes 123</div>
+                <div>Dislikes 23</div>
+                <div class="show-replies">Reply 1</div>
+              </div>
+            </div>
+            <div class="comment__container" dataset="first-first-reply">
+              <div class="comment__card">
+                <h3 class="comment__title">
+                  The first reply to the first reply to the first reply
+                </h3>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Voluptatum eaque itaque sit tempora officiis, quisquam atque?
+                  Impedit dignissimos error laudantium!
+                </p>
+                <div class="comment__card-footer">
+                  <div>Likes 123</div>
+                  <div>Dislikes 23</div>
+                  <div class="show-replies">Reply 0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment__container" dataset="first-comment">
+          <div class="comment__card">
+            <h3 class="comment__title">The second reply</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Voluptatum eaque itaque sit tempora officiis, quisquam atque?
+              Impedit dignissimos error laudantium!
+            </p>
+            <div class="comment__card-footer">
+              <div>Likes 123</div>
+              <div>Dislikes 23</div>
+              <div class="show-replies">Reply 0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+      </div>
+
+
+    </div>
+
+    </div>
+  </section>
+
+
+  <!-- footer design -->
+  <footer class="footer">
+    <div class="footer-text">
+      <p>تمامی حقوق مادی و معنوی این سایت محفوظ است.  <br>
+        &copy; Magic. Bytes</p>
+
+    </div>
+
+    <div class="footer-iconTop">
+      <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+  <script src="/static/js/script.js"></script>
+
+
+
+</body>
+</html>

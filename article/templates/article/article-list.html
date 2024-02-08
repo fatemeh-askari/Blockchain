@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magic Bytes | لیست مقالات و آموزش ها</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/images/favicon-32x32.png" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+</head>
+<body>
+
+  <!-- header design -->
+  <header class="header">
+    <a href="{% url 'index-page' %}" class="logo">Magic. Bytes<span class="animate" style="--i:1;"></span></a>
+
+    <div class='bx bx-menu' id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+
+    <nav class="navbar">
+      <a href="{% url 'index-page' %}">صفحه اصلی</a>
+      <a href="{% url 'article-list-page' %}">نقشه راه یادگیری</a>
+      <a href="#" class="active">لیست مقالات</a>
+      <a href="{% url 'support-page' %}">حمایت مالی</a>
+      <a href="{% url 'about-us-page' %}">ارتباط با ما</a>
+
+      <span class="active-nav"></span>
+      <span class="animate" style="--i:2;"></span>
+    </nav>
+  </header>
+
+  <section class="education" id="education">
+    <div class="education-row">
+      <div class="education-column">
+        <div class="accordion">
+           {% for category in categories %}
+  {% if category.is_active %}
+    <div class="contentBx">
+      <div class="label">{{ category.title }}</div>
+      <div class="content">
+        <ul class="ul-accordion">
+          {% for subcategory in category.articlesubcategory_set.all|dictsort:"priority" %}
+            {% if subcategory.is_active %}
+              <li>
+                <i class='bx bx-edit-alt'></i>
+                <a href="{% url 'subcategory_list' pk=subcategory.pk %}">{{ subcategory.title }}</a>
+                <ul class="ul-articles">
+                  {% for article in subcategory.article_set.all %}
+                    {% if article.is_active %}
+                      <li>
+                        <i class='bx bx-horizontal-left'></i>
+                        <a href="{% url 'article-details' url_title=article.url_title %}">{{ article.title }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="footer-text">
+      <p>تمامی حقوق مادی و معنوی این سایت محفوظ است.  <br>
+        &copy; Magic. Bytes</p>
+    </div>
+    <div class="footer-iconTop">
+      <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+    </div>
+  </footer>
+  <script src="/static/js/script.js"></script>
+</body>
+</html>
